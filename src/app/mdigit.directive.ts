@@ -14,12 +14,14 @@ export class MdigitDirective {
 
   private update(value) {
     let final = "";
-    const nums = '០១២៣៤៥៦៧៨៩';
+    const nums = '-១២៣៤៥៦៧៨៩០';
 
     for (var i = 0; i <= value.length; i++) {
       let char = value.charAt(i - 1);
       let n = nums.indexOf(char);
-      n > 0 ? final += n : final += char;
+      n > 0 ?
+        n == 10 ? final += 0 : final += n
+        : final += char;
     }
     return final;
   }
